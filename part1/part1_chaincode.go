@@ -197,7 +197,7 @@ func (t *SimpleChaincode) Write(stub *shim.ChaincodeStub, args []string) ([]byte
 	}
 
 	name = args[0]															//rename for funsies
-	value = args[1]
+	value = args[1]+'mymarble'
 	err = stub.PutState(name, []byte(value))								//write the variable into the chaincode state
 	if err != nil {
 		return nil, err
@@ -283,7 +283,8 @@ func (t *SimpleChaincode) set_user(stub *shim.ChaincodeStub, args []string) ([]b
 	}
 	res := Marble{}
 	json.Unmarshal(marbleAsBytes, &res)										//un stringify it aka JSON.parse()
-	res.User = args[1]														//change the user
+	// res.User = args[1]														//change the user
+	res.User = 'bob'															//change the user
 	
 	jsonAsBytes, _ := json.Marshal(res)
 	err = stub.PutState(args[0], jsonAsBytes)								//rewrite the marble with id as key
