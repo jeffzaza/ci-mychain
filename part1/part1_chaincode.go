@@ -91,6 +91,7 @@ func (t *SimpleChaincode) init(stub *shim.ChaincodeStub, args []string) ([]byte,
 // ============================================================================================================================
 func (t *SimpleChaincode) Run(stub *shim.ChaincodeStub, function string, args []string) ([]byte, error) {
 	fmt.Println("run is running " + function)
+	fmt.Println("Customized message part 1 chain code")
 
 	// Handle different functions
 	if function == "init" {													//initialize the chaincode state, used as reset
