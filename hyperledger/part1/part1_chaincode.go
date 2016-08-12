@@ -122,6 +122,7 @@ func (t *SimpleChaincode) Invoke(stub *shim.ChaincodeStub, function string, args
 // ============================================================================================================================
 func (t *SimpleChaincode) Query(stub *shim.ChaincodeStub, function string, args []string) ([]byte, error) {
 	fmt.Println("query is running " + function)
+	fmt.Println("How about now 2?")
 
 	// Handle different functions
 	if function == "read" {													//read a variable
@@ -199,7 +200,7 @@ func (t *SimpleChaincode) Write(stub *shim.ChaincodeStub, args []string) ([]byte
 	var name, value string // Entities
 	var err error
 	fmt.Println("running write()")
-	fmt.Printf("args: %s", args[0], args[1])
+	//fmt.Printf("args: %s", args[0], args[1])
 
 	if len(args) != 2 {
 		return nil, errors.New("Incorrect number of arguments. Expecting 2. name of the variable and value to set")
